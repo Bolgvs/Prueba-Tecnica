@@ -34,7 +34,7 @@ public class LoginFilter  extends AbstractAuthenticationProcessingFilter {
     	// get the body of the request that we assume is in JSON format
         InputStream body = req.getInputStream();
 
-        // We assume that the body will have the following JSON {"username":"celes", "password":"123"}
+        // We assume that the body will have the following JSON {"username":"nico", "password":"remote"}
         // We make a mapping to our User class to have the data there
         User user = new ObjectMapper().readValue(body, User.class);
 

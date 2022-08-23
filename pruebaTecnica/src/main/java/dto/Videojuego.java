@@ -11,14 +11,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name="videogame")
 public class Videojuego {
-	//Atributes
+	// Attributes
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(name="name")
 	private String name;
 	@Column(name="image")
-	private String image; // I insert the image here, supposing that for the frontend game image will be called from here
+	private String image; // I insert the image here, supposing that for the front-tend game image will be called from here
 
 		
 
@@ -68,7 +68,7 @@ public class Videojuego {
 		// To string
 		@Override
 		public String toString() {
-			return "Cliente [id=" + id + ", name=" + name + ", image=" + image + "]";
+			return "Videojuego [id=" + id + ", name=" + name + ", image=" + image + "]";
 		}
 		
 }
