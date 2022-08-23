@@ -4,15 +4,15 @@ import java.util.List;
 
 import dto.Mensaje;
 
-public class IMensajeService {
+public interface IMensajeService {
 	
-	public List<Mensaje> listMensaje();
+	public List<Mensaje> listMensajes();
 	
-	public List<Mensaje> MensajeByName(String name);
+	public List<Mensaje> MensajesByName(String name);
 	
 	public Mensaje createMensaje(Mensaje mensaje);
 	
-	public Mensaje MensajeById(Long id);
+	public Mensaje MensajesById(Long id);
 	
 	public void deleteMensaje(Long id);
 	

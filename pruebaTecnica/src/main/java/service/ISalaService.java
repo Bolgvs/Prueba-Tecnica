@@ -4,15 +4,15 @@ import java.util.List;
 
 import dto.Sala;
 
-public class ISalaService {
+public interface ISalaService {
 	
-	public List<Sala> listSala();
+	public List<Sala> listSalas();
 	
-	public List<Sala> SalaByName(String name);
+	public List<Sala> SalasByName(String name);
 	
 	public Sala createSala(Sala sala);
 	
-	public Sala SalaById(Long id);
+	public Sala SalasById(Long id);
 	
 	public void deleteSala(Long id);
 	

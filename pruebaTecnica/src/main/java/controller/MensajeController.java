@@ -15,6 +15,55 @@ import org.springframework.web.bind.annotation.RestController;
 import dto.Mensaje;
 import service.MensajeServiceImpl;
 
-public class MensajeController {
 
+@RestController
+@RequestMapping("/api")
+public class MensajeController {
+		
+	@Autowired
+	MensajeServiceImpl mensajeServiceImpl;
+			
+	@GetMapping("/mensajes")
+	public List<Mensaje> listMensaje(){
+		return mensajeServiceImpl.listMensajes();
+	}
+			
+	@GetMapping("/mensajes/name/{name}")
+	public List<Mensaje> MensajesByName(@PathVariable(name="name") String name) {
+		return mensajeServiceImpl.MensajesByName(name);
+	}
+			
+	@PostMapping("/mensajes")
+	public Mensaje createMensaje(@RequestBody Mensaje mensaje) {
+		return mensajeServiceImpl.createMensaje(mensaje);
+	}
+		
+	@GetMapping("/mensajes/{id}")
+	public Mensaje MensajeById(@PathVariable(name="id") Long id) {
+		Mensaje MensajeById = new Mensaje();
+		MensajeById = mensajeServiceImpl.MensajesById(id);
+				
+		return MensajeById;
+	}		
+	@PutMapping("/mensajes/{id}")
+	public Mensaje Mensaje(@PathVariable(name="id") Long id, @RequestBody Mensaje mensaje) {
+		Mensaje selectedMensaje = new Mensaje();
+		Mensaje updateMensaje = new Mensaje();
+				
+		selectedMensaje = mensajeServiceImpl.MensajesById(id);
+				
+		selectedMensaje.setSender(mensaje.getSender());
+		selectedMensaje.setText(mensaje.getText());
+		selectedMensaje.setHour(mensaje.getHour());
+				
+		updateMensaje = mensajeServiceImpl.updateMensaje(selectedMensaje);
+				
+		return updateMensaje;
+	}
+			
+	@DeleteMapping("/mensajes/{id}")
+	public void deleteMensaje(@PathVariable(name="id") Long id) {
+		mensajeServiceImpl.deleteMensaje(id);
+	}
 }
+

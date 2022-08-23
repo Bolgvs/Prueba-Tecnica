@@ -15,6 +15,54 @@ import org.springframework.web.bind.annotation.RestController;
 import dto.Usuario;
 import service.UsuarioServiceImpl;
 
-public class UsuarioController {
 
+@RestController
+@RequestMapping("/api")
+public class UsuarioController {
+	@Autowired
+	UsuarioServiceImpl usuarioServiceImpl;
+			
+	@GetMapping("/usuarios")
+	public List<Usuario> listUsuarios(){
+		return usuarioServiceImpl.listUsuarios();
+	}
+			
+	@GetMapping("/usuarios/name/{name}")
+	public List<Usuario> UsuariosByName(@PathVariable(name="name") String name) {
+		return usuarioServiceImpl.UsuariosByName(name);
+	}
+			
+	@PostMapping("/usuarios")
+	public Usuario createUsuario(@RequestBody Usuario usuario) {
+		return usuarioServiceImpl.createUsuario(usuario);
+	}
+		
+	@GetMapping("/usuarios/{id}")
+	public Usuario UsuarioById(@PathVariable(name="id") Long id) {
+		Usuario EmployeeById = new Usuario();
+		EmployeeById = usuarioServiceImpl.UsuariosById(id);
+				
+		return EmployeeById;
+	}		
+	@PutMapping("/usuarios/{id}")
+	public Usuario updateUsuario(@PathVariable(name="id") Long id, @RequestBody Usuario usuario) {
+		Usuario selectedUsuario = new Usuario();
+		Usuario updateUsuario = new Usuario();
+				
+		selectedUsuario = usuarioServiceImpl.UsuariosById(id);
+				
+		selectedUsuario.setName(usuario.getName());
+		selectedUsuario.setUsername(usuario.getUsername());
+		selectedUsuario.setSteamProfile(usuario.getSteamProfile());
+		selectedUsuario.setEpicgamesProfile(usuario.getEpicgamesProfile());
+				
+		updateUsuario = usuarioServiceImpl.updateUsuario(selectedUsuario);
+				
+		return updateUsuario;
+	}
+			
+	@DeleteMapping("/usuarios/{id}")
+	public void deleteUsuario(@PathVariable(name="id") Long id) {
+		usuarioServiceImpl.deleteUsuario(id);
+	}
 }

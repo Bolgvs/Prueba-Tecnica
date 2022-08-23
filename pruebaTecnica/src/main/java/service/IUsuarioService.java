@@ -4,15 +4,15 @@ import java.util.List;
 
 import dto.Usuario;
 
-public class IUsuarioService {
+public interface IUsuarioService {
 	
-	public List<Usuario> listUsuario();
+	public List<Usuario> listUsuarios();
 	
-	public List<Usuario> UsuarioByName(String name);
+	public List<Usuario> UsuariosByName(String name);
 	
 	public Usuario createUsuario(Usuario usuario);
 	
-	public Usuario UsuarioById(Long id);
+	public Usuario UsuariosById(Long id);
 	
 	public void deleteUsuario(Long id);
 	

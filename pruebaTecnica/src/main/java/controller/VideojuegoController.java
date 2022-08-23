@@ -15,6 +15,52 @@ import org.springframework.web.bind.annotation.RestController;
 import dto.Videojuego;
 import service.VideojuegoServiceImpl;
 
-public class VideojuegoController {
 
+@RestController
+@RequestMapping("/api")
+public class VideojuegoController {
+	@Autowired
+	VideojuegoServiceImpl videojuegoServiceImpl;
+			
+	@GetMapping("/mensajes")
+	public List<Videojuego> listEmployees(){
+		return videojuegoServiceImpl.listVideojuegos();
+	}
+			
+	@GetMapping("/employees/name/{name}")
+	public List<Videojuego> VideojuegosByName(@PathVariable(name="name") String name) {
+		return videojuegoServiceImpl.VideojuegosByName(name);
+	}
+			
+	@PostMapping("/employees")
+	public Videojuego createVideojuego(@RequestBody Videojuego videojuego) {
+		return videojuegoServiceImpl.createVideojuego(videojuego);
+	}
+		
+	@GetMapping("/employees/{id}")
+	public Videojuego VideojuegosById(@PathVariable(name="id") Long id) {
+		Videojuego VideojuegosById = new Videojuego();
+		VideojuegosById = videojuegoServiceImpl.VideojuegosById(id);
+				
+		return VideojuegosById;
+	}		
+	@PutMapping("/employees/{id}")
+	public Videojuego updateVideojuego(@PathVariable(name="id") Long id, @RequestBody Videojuego videojuego) {
+		Videojuego selectedVideojuego = new Videojuego();
+		Videojuego updateVideojuego = new Videojuego();
+				
+		selectedVideojuego = videojuegoServiceImpl.VideojuegosById(id);
+				
+		selectedVideojuego.setName(videojuego.getName());
+		selectedVideojuego.setImage(videojuego.getImage());
+				
+		updateVideojuego = videojuegoServiceImpl.updateVideojuego(updateVideojuego);
+				
+		return updateVideojuego;
+	}
+			
+	@DeleteMapping("/empleados/{id}")
+	public void deleteVideojuego(@PathVariable(name="id") Long id) {
+		videojuegoServiceImpl.deleteVideojuego(id);
+	}
 }

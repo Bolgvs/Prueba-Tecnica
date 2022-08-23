@@ -2,19 +2,19 @@ package service;
 
 import java.util.List;
 
-import dto.Video;
+import dto.Videojuego;
 
-public class IVideojuegoService {
+public interface IVideojuegoService {
 	
-	public List<Video> listVideo();
+	public List<Videojuego> listVideojuegos();
 	
-	public List<Video> VideoByName(String name);
+	public List<Videojuego> VideojuegosByName(String name);
 	
-	public Video createVideo(Video video);
+	public Videojuego createVideojuego(Videojuego videojuego);
 	
-	public Video VideoById(Long id);
+	public Videojuego VideojuegosById(Long id);
 	
-	public void deleteVideo(Long id);
+	public void deleteVideojuego(Long id);
 	
-	public Video updateVideo(Video video);
+	public Videojuego updateVideojuego(Videojuego videojuego);
 }
