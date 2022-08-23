@@ -1,4 +1,9 @@
-Hay un error en el pom.xml, y no me deja desplegarlo en heroku
+Hay un error en el pom.xml, y no me deja desplegarlo en heroku  
+Hola Jose, he creado un repo nuevo. Te había comentado x discord que mi error habia sido cambiar el pom.xml entero, y he replicado el proyecto con otro nombre.  
+El repo es este: https://github.com/Bolgvs/PruebaTecnica-replica-para-POM- (lo unico que cambia es el pom, la version)  
+Y el enlace de heroku es este: https://prueba-tecnica-con-pom.herokuapp.com/login  
+No sé si contará, pero creo qué tenía que subirlo, porque al ser un error de ese tipo y no haber tocado nada mas, no me dejaba desplegarlo en heroku y era por ese error.  
+Gracias, Nico.
 
 # Prueba-Tecnica
 
