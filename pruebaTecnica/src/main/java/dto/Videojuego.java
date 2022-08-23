@@ -21,7 +21,7 @@ public class Videojuego {
 	private String image; // I insert the image here, supposing that for the front-tend game image will be called from here
 
 		
-
+	// Constructors
 	public Videojuego() {
 		
 	}

@@ -17,11 +17,10 @@ public class Sala {
 	private Long id;
 	@Column(name="name")
 	private String name;
-	@Column(name="image")
-	private String image; // I insert the image here, supposing that for the front-tend game image will be called from here
+	@Column(name="personas_maximas")
+	private String personasMaximas; 
 
-			
-
+	// Constructors
 	public Sala() {
 		
 	}
@@ -29,14 +28,14 @@ public class Sala {
 	/**
 	 * @param id
 	 * @param name
-	 * @param image
+	 * @param personasMaximas
 	 */
 		
-	public Sala(Long id, String name, String image) {
+	public Sala(Long id, String name, String personasMaximas) {
 		//super();
 		this.id = id;
 		this.name = name;
-		this.image = image;
+		this.personasMaximas = personasMaximas;
 			
 	}
 		
@@ -57,18 +56,18 @@ public class Sala {
 			this.name = name;
 		}
 
-		public String getImage() {
-			return image;
+		public String getPersonasMaximas() {
+			return personasMaximas;
 		}
 
-		public void setImage(String image) {
-			this.image = image;
+		public void setPersonasMaximas(String personasMaximas) {
+			this.personasMaximas = personasMaximas;
 		}
 			
 		// To string
 		@Override
 		public String toString() {
-			return "Sala [id=" + id + ", name=" + name + ", image=" + image + "]";
+			return "Sala [id=" + id + ", name=" + name + ", personasMaximas=" + personasMaximas + "]";
 		}
 			
 }
