@@ -17,56 +17,80 @@ public class Usuario {
 	private Long id;
 	@Column(name="name")
 	private String name;
-	@Column(name="image")
-	private String image; // I insert the image here, supposing that for the front-tend game image will be called from here
+	@Column(name="username")
+	private String username;
+	@Column(name="steam_profile")
+	private String steamProfile;
+	@Column(name="epicgames_profile")
+	private String epicgamesProfile;
 
 				
 
-	public Sala() {
+	public Usuario() {
 			
 	}
 			
 	/**
 	 * @param id
 	 * @param name
-	 * @param image
+	 * @param steamProfile
+	 * @param epicgamesProfile
 	 */
 			
-	public Sala(Long id, String name, String image) {
+	public Usuario(Long id, String name, String username, String steamProfile, String epicgamesProfile) {
 		//super();
 		this.id = id;
 		this.name = name;
-		this.image = image;
+		this.username = username;
+		this.steamProfile = steamProfile;
+		this.epicgamesProfile = epicgamesProfile;
 				
 	}
 			
 	// Getters setters
-			public Long getId() {
-				return id;
-			}
+		public Long getId() {
+			return id;
+		}
 
-			public void setId(Long id) {
-				this.id = id;
-			}
+		public void setId(Long id) {
+			this.id = id;
+		}
 
-			public String getName() {
-				return name;
-			}
+		public String getName() {
+			return name;
+		}
 
-			public void setName(String name) {
-				this.name = name;
-			}
+		public void setName(String name) {
+			this.name = name;
+		}
 
-			public String getImage() {
-				return image;
-			}
+		public String getUsername() {
+			return username;
+		}
+			
+		public void setUsername(String username) {
+			this.username = username;
+		}
+		
 
-			public void setImage(String image) {
-				this.image = image;
-			}
-				
-			// To string
-			@Override
-			public String toString() {
-				return "Sala [id=" + id + ", name=" + name + ", image=" + image + "]";
-			}
+		public String getSteamProfile() {
+			return steamProfile;
+		}
+
+		public void setSteamProfile(String steamProfile) {
+			this.steamProfile = steamProfile;
+		}
+
+		public String getEpicgamesProfile() {
+			return epicgamesProfile;
+		}
+
+		public void setEpicgamesProfile(String epicgamesProfile) {
+			this.epicgamesProfile = epicgamesProfile;
+		}
+
+		@Override
+		public String toString() {
+			return "Sala [id=" + id + ", name=" + name + ", username=" + username + ", steamProfile=" + steamProfile + ", epicgamesProfile=" + epicgamesProfile + "]";
+		}
+}
