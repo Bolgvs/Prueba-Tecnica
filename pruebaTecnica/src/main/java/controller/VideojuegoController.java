@@ -22,29 +22,29 @@ public class VideojuegoController {
 	@Autowired
 	VideojuegoServiceImpl videojuegoServiceImpl;
 			
-	@GetMapping("/mensajes")
+	@GetMapping("/videojuego")
 	public List<Videojuego> listEmployees(){
 		return videojuegoServiceImpl.listVideojuegos();
 	}
 			
-	@GetMapping("/employees/name/{name}")
+	@GetMapping("/videojuego/name/{name}")
 	public List<Videojuego> VideojuegosByName(@PathVariable(name="name") String name) {
 		return videojuegoServiceImpl.VideojuegosByName(name);
 	}
 			
-	@PostMapping("/employees")
+	@PostMapping("/videojuego")
 	public Videojuego createVideojuego(@RequestBody Videojuego videojuego) {
 		return videojuegoServiceImpl.createVideojuego(videojuego);
 	}
 		
-	@GetMapping("/employees/{id}")
+	@GetMapping("/videojuego/{id}")
 	public Videojuego VideojuegosById(@PathVariable(name="id") Long id) {
 		Videojuego VideojuegosById = new Videojuego();
 		VideojuegosById = videojuegoServiceImpl.VideojuegosById(id);
 				
 		return VideojuegosById;
 	}		
-	@PutMapping("/employees/{id}")
+	@PutMapping("/videojuego/{id}")
 	public Videojuego updateVideojuego(@PathVariable(name="id") Long id, @RequestBody Videojuego videojuego) {
 		Videojuego selectedVideojuego = new Videojuego();
 		Videojuego updateVideojuego = new Videojuego();
@@ -59,7 +59,7 @@ public class VideojuegoController {
 		return updateVideojuego;
 	}
 			
-	@DeleteMapping("/empleados/{id}")
+	@DeleteMapping("/videojuego/{id}")
 	public void deleteVideojuego(@PathVariable(name="id") Long id) {
 		videojuegoServiceImpl.deleteVideojuego(id);
 	}
